@@ -5,19 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
-    <title>Campo Minas - Videojuego</title>
+    <title>Campo de Minas - Videojuego</title>
 </head>
 <body>
-    <div class="container-videogame">
-        <canvas></canvas>
-        <button class="up">Arriba</button>
-        <button class="left">Izquierda</button>
-        <button class="right">Derecha</button>
-        <button class="down">Abajo</button>
-        <p>Párrafo de ejemplo</p>
+    <div class="game-container">
+        <canvas id="game"></canvas>
+
+        <div class="btns">
+            <button id="up">Arriba</button>
+            <button id="left">Izquierda</button>
+            <button id="right">Derecha</button>
+            <button id="down">Abajo</button>
+        </div>
+    
+        <div class="messages">
+            <p>Párrafo de ejemplo</p>
+        </div>
     </div>
 
     <script src="./maps.js"></script>
-    <script src="./canvas.js"></script>
+    <script src="./game.js"></script>
 </body>
 </html>
