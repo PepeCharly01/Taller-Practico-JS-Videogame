@@ -88,3 +88,32 @@ window.addEventListener('resize', setCanvasSize);
 ```
 este evento hace referencia a cuando se cambia el tamaño de la pantalla.
 ## Segundo modulo:
+### trabajar con arreglos bidimencionales
+por ejemplo puedes anidar dos ciclos for solo tienes que ponerle nombre a la variable diferente por ejemplo "i" y "j".
+```js
+for (let row = 1; row <= 10; row++) {
+        for (let col = 1; col <= 10; col++) {
+            game.fillText(emojis['X'], (elementsSize * row ), elementsSize * col);   
+        }
+    }
+```
+hay otras funciones (metodos) de los strings que nos ayudan a trabajar con los arrays de arrays como son los .trim .split y el .map
+```js
+    const map = maps[0];
+    const mapRows = maps[0].trim().split('\n');
+    const mapRowCols = mapRows.map(row => row.trim().split(''));
+```
+La funcion .trim hace desaparecer los espacios vacios en un arreglo del principio y al final.
+el .split separa en arrays deferentes segun le digas, primero por cada salto de linea por eso el "\n" y luego hace un array por cada elemento.
+y el .map nos ayuda a crear arreglos de otros arreglos.
+El metodo forEach es para recorer un arreglo (array).
+```js
+mapRowCols.forEach( (row, rowI) => {
+        row.forEach((col, colI) => {
+            const emoji = emojis[col];
+            const posX = elementsSize * (colI + 1);
+            const posY = elementsSize * (rowI + 1);
+            game.fillText(emoji, posX, posY);
+        });
+    });
+```
