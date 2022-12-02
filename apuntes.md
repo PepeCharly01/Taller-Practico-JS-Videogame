@@ -117,3 +117,20 @@ mapRowCols.forEach( (row, rowI) => {
         });
     });
 ```
+un nuevo metodo de los Array es este con un fill.
+```js
+const heartArray = Array(lives).fill(emojis['HEART']);
+spanLives.innerHTML = "";
+heartArray.forEach(heart => spanLives.append(heart));
+```
+### Funciones para intervalos de tiempo.
+setInterval es una funcion que como argumento resive otra funcion y ademas el intervalo de tiempo que quieres que se realice dicha funcion. ejemplo:
+```js
+const intervalo = setInterval(() => console.log('Hola'), 1000)
+clearInterval(intervalo)
+```
+se ejecutara cada segundo. se debe guardar en una variable y con el clear se puede detener la ejecución.
+por otro lado setTimeout se ejecuta una sola vez segun el tiempo establecido.
+```js
+setTimeout(() => console.log('Hola'), 1000)
+```
