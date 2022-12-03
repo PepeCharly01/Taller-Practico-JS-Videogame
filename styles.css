@@ -41,6 +41,16 @@ body {
   button:not(:last-child) {
     margin-right: 10px;
   }
+  .button-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .reset {
+    width: 150px;
+    margin-top: 12px;
+  }
   
   .messages {
     display: flex;
@@ -57,6 +67,6 @@ body {
   }
   
   @media (max-width: 440px) {
-    button { margin-top: 25px; }
+    button { margin-top: 15px; }
     #up, #down { margin-left: 100%; margin-right: 100%; }
   }
