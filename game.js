@@ -28,6 +28,11 @@ const giftPosition = {
 };
 let enemyPositions = [];
 
+let firePos = {
+    x: undefined,
+    y: undefined,
+};
+
 window.addEventListener('load', setCanvasSize);
 window.addEventListener('resize', setCanvasSize);
 resetButton.addEventListener('click', restGame);
@@ -96,7 +101,6 @@ function startGame() {
                     y: posY,
                 });
             }
-
             game.fillText(emoji, posX, posY);
         });
     });
@@ -118,7 +122,23 @@ function movePlayer() {
     });
 
     if (enemyCollision) {
-        levelLost();
+        showCollision();
+        setTimeout(levelLost, 2000);
+    }
+    if (enemyCollision) {
+        showCollision();
+        setTimeout(levelLost, 2000);
+    }
+    function showCollision() {
+        game.clearRect(0, 0, canvasSize, canvasSize);
+        game.font = '12px Verdana';
+        game.textAlign = 'center';
+        if(lives > 1) {
+            game.fillText('PERDISTE UNA VIDA, VUELVE A INTENTARLO', canvasSize/2, canvasSize/2);
+        }
+        else {
+            game.fillText('PERDISTE TODAS LAS VIDAS, VUELVE AL INICIO', canvasSize/2, canvasSize/2);
+        } 
     }
 
     game.fillText(emojis['PLAYER'], playerPosition.x, playerPosition.y);
@@ -132,7 +152,7 @@ function levelWin () {
 
 function levelLost() {
     console.log('Chocaste contra un enemigo!!');
-    lives--;
+    lives = lives - 0.5;
 
     console.log(lives);
     if (lives <= 0) {

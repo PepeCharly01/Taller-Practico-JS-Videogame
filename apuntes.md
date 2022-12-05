@@ -134,3 +134,37 @@ por otro lado setTimeout se ejecuta una sola vez segun el tiempo establecido.
 ```js
 setTimeout(() => console.log('Hola'), 1000)
 ```
+esta funcion lo que hace es mostrar la animación de exploción, pero solo sobre escribe la animación de explocion sin borrar al jugador ni a las bombas.
+```js
+let firePos = {
+    x: undefined,
+    y: undefined,
+}
+if (enemyCollision) {
+        showCollision();
+        setTimeout(levelLost(), 2000);
+    }
+function showCollision() {
+    game.clearRect(0, 0, canvasSize, canvasSize);
+        firePos.x = playerPosition.x;
+        firePos.y = playerPosition.y;
+        fireExp();
+    }
+    function fireExp() {
+        game.fillText(emojis['BOMB_COLLISION'], firePos.x, firePos.y);
+    }
+```
+esta borra todo en cnavas y sobre escribe una un mensaje dependiendo de si perdio una vida o perdio todas las vidas.
+```js
+function showCollision() {
+        game.clearRect(0, 0, canvasSize, canvasSize);
+        game.font = '12px Verdana';
+        game.textAlign = 'center';
+        if(lives > 1) {
+            game.fillText('PERDISTE UNA VIDA, VUELVE A INTENTARLO', canvasSize/2, canvasSize/2);
+        }
+        else {
+            game.fillText('PERDISTE TODAS LAS VIDAS, VUELVE AL INICIO', canvasSize/2, canvasSize/2);
+        } 
+    }
+```
