@@ -28,11 +28,6 @@ const giftPosition = {
 };
 let enemyPositions = [];
 
-let firePos = {
-    x: undefined,
-    y: undefined,
-};
-
 window.addEventListener('load', setCanvasSize);
 window.addEventListener('resize', setCanvasSize);
 resetButton.addEventListener('click', restGame);
@@ -125,10 +120,6 @@ function movePlayer() {
         showCollision();
         setTimeout(levelLost, 2000);
     }
-    if (enemyCollision) {
-        showCollision();
-        setTimeout(levelLost, 2000);
-    }
     function showCollision() {
         game.clearRect(0, 0, canvasSize, canvasSize);
         game.font = '12px Verdana';
@@ -152,7 +143,7 @@ function levelWin () {
 
 function levelLost() {
     console.log('Chocaste contra un enemigo!!');
-    lives = lives - 0.5;
+    lives --;
 
     console.log(lives);
     if (lives <= 0) {
